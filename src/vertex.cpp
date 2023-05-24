@@ -3,11 +3,13 @@
 
 const int TVertex::FONT_SIZE = 11;
 const int TVertex::VERTEX_RADIUS = 30;
+const QColor TVertex::COLOR = QColor(64, 169, 201);
 
 TVertex::TVertex(QString name, QObject *parent)
     : QObject{parent}
     , _Name(name)
-    , _Rect(QRectF(-VERTEX_RADIUS/2, -VERTEX_RADIUS/2, VERTEX_RADIUS, VERTEX_RADIUS)) {}
+    , _Rect(QRectF(-VERTEX_RADIUS/2, -VERTEX_RADIUS/2, VERTEX_RADIUS, VERTEX_RADIUS))
+    , _Color(COLOR) {}
 
 TVertex::~TVertex(){}
 
@@ -17,7 +19,7 @@ QRectF TVertex::boundingRect() const {
 
 void TVertex::paint(QPainter* painter, const QStyleOptionGraphicsItem* /*option*/, QWidget* /*widget*/)
 {
-    painter->setBrush(QBrush(QColor(64, 169, 201)));
+    painter->setBrush(QBrush(_Color));
     painter->drawEllipse(_Rect);
 
     painter->setFont(QFont("times", FONT_SIZE));
@@ -36,6 +38,7 @@ void TVertex::mouseMoveEvent(QGraphicsSceneMouseEvent* event)
 void TVertex::mousePressEvent(QGraphicsSceneMouseEvent* /*event*/)
 {
     this->setCursor(QCursor(Qt::ClosedHandCursor));
+    UpdatePaint();
 }
 
 void TVertex::mouseReleaseEvent(QGraphicsSceneMouseEvent* /*event*/)
@@ -47,6 +50,10 @@ const QString& TVertex::Name() const {
     return _Name;
 }
 
+void TVertex::UpdatePaint()
+{
+    setPos(pos().x() + 0.001, pos().y());
+}
 
 
 

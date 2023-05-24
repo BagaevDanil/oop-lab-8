@@ -8,7 +8,7 @@
 #include <vector>
 #include "vertex.h"
 #include "edge.h"
-
+#include "vertexselect.h"
 
 class TGraph
 {
@@ -21,7 +21,7 @@ public:
     void UseKruskal();
 
 private:
-    std::vector<TVertex*> _ArrVertex;
+    std::vector<TVertexSelect*> _ArrVertex;
     std::vector<TEdge*> _ArrEdge;
 
 };

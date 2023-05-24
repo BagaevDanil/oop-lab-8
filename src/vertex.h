@@ -15,6 +15,7 @@ class TVertex : public QObject, public QGraphicsItem
 public:
     static const int FONT_SIZE;
     static const int VERTEX_RADIUS;
+    static const QColor COLOR;
 
 public:
     explicit TVertex(QString name, QObject *parent = nullptr);
@@ -29,11 +30,14 @@ protected:
 private:
     QRectF boundingRect() const;
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
+    void UpdatePaint();
 
 private:
     QString _Name;
     QRectF _Rect;
 
+protected:
+    QColor _Color;
 };
 
 #endif // TVERTEX_H
