@@ -7,7 +7,7 @@ TGraph::TGraph(QVector<QVector<double>> matrix)
 {
     int n = matrix.size();
     for (int i = 0; i < n; i++) {
-        _ArrVertex.push_back(new TVertex(QString::number(i)));
+        _ArrVertex.push_back(new TVertexSelect(QString::number(i)));
     }
 
     for (int y = 0; y < n; y++) {
@@ -29,7 +29,7 @@ TGraph::TGraph(int numVertex, int numEdge)
     }
 
     for (int i = 0; i < numVertex; ++i) {
-        _ArrVertex.push_back(new TVertex(QString::number(i)));
+        _ArrVertex.push_back(new TVertexSelect(QString::number(i)));
     }
 
     std::set<std::pair<int, int>> usedEdges;

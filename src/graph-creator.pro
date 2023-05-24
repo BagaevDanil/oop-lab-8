@@ -14,14 +14,16 @@ SOURCES += \
     graph.cpp \
     main.cpp \
     mainwindow.cpp \
-    vertex.cpp
+    vertex.cpp \
+    vertexselect.cpp
 
 HEADERS += \
     algorithms.h \
     edge.h \
     graph.h \
     mainwindow.h \
-    vertex.h
+    vertex.h \
+    vertexselect.h
 
 FORMS += \
     mainwindow.ui
